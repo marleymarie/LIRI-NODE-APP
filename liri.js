@@ -1,5 +1,6 @@
 require("dotenv").config();
-//I read to put this at the top of the liri.js page and a file will load for it.
+//I read to put this at the top of the liri.js page and a file will load for it. (Never loaded)
+//Can't get pass this error continuing...
 
 var axios = require("axios");
 
@@ -11,7 +12,6 @@ var Spotify = require('node-spotify-api');
 
 var spotify = new Spotify(keys.spotify);
 
-//var moment = require('moment');
 
 
 
