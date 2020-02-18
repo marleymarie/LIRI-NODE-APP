@@ -19,7 +19,7 @@ var spotify = new Spotify(keys.spotify);
 
 
 //for the Concert-this/bands in town.
-function concert() {
+function concertThis() {
     var artist = userInput
     var queryURL = "https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp";
     console.log(queryURL);
@@ -42,12 +42,11 @@ function concert() {
                 console.log("---------------Status---------------");
                 console.log(error.response.headers);
             } else if (error.request) {
-                // The request was made but no response was received
-                // `error.request` is an object that comes back with details pertaining to the error that occurred.
+                
                 console.log(error.request);
             } else {
-                // Something happened in setting up the request that triggered an Error
-                console.log("Sorry, this band doesn't have any upcoming shows.");
+               
+                console.log("No upcoming shows.");
             }
             console.log(error.config);
         });
@@ -57,10 +56,10 @@ function concert() {
 function spotify() {
     //accesses node-spotify-api
     var Spotify = require("node-spotify-api");
-    //pushes spotify keys to object to be used by node-spotify-api
+    
     var spotify = new Spotify(keys.spotify);
 
-   //couldnt figure out the code for the spotify information 
+   //couldnt figure out the code/ console.logging for the spotify information 
     
    //(I understand the catch function to see if there are any errors in the code)
    //.catch(function(err) {
@@ -69,7 +68,7 @@ function spotify() {
 }
 
 //node liri.js movie-this '<movie name here>'
-function movie() {
+function movieThis() {
 
 var movieName = userInput;
 
@@ -125,16 +124,17 @@ fs.readFile("random.txt", "utf8", function(error, data) {
   });
 }
 
+//The switch statement
 function options() { 
     switch (command) {
     case "concert-this":
-        concert();
+        concertThis();
         break;
     case "spotify-this-song":
         spotify();
         break;
     case "movie-this":
-        movie();
+        movieThis();
         break;
     case "do-what-it-says":
         doWhat();
